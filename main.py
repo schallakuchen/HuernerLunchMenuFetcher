@@ -9,16 +9,16 @@ from openpyxl.utils import get_column_letter
 
 def main():
     parser = argparse.ArgumentParser(description='Parse lunch menu from Fleischerei Huerner')
-    parser.add_argument('-f', '--inputf', type=str, help='URL to the menu page', default='https://www.fleischerei-huerner.at/regionales_mittagsmenue/')
-    parser.add_argument('-o', '--outputf', type=str, help="Location to store the output file including it's name", default='weekly_lunch_menu')
+    parser.add_argument('-if', '--inputFile', type=str, help='URL to the menu page', default='https://www.fleischerei-huerner.at/regionales_mittagsmenue/')
+    parser.add_argument('-of', '--outputFile', type=str, help="Location to store the output file including it's name", default='weekly_lunch_menu')
     args = parser.parse_args()
 
     # Add timestamp to the output file name
     timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-    output_file = f'{args.outputf}_{timestamp}.xlsx'
+    output_file = f'{args.outputFile}_{timestamp}.xlsx'
 
     # Read html page from webpage
-    html_page = fetch_html_by_url(args.inputf)
+    html_page = fetch_html_by_url(args.inputFile)
     # Parse menu data from html content
     menu_data = parse_html_content(html_page)
     # Export data as excel file
