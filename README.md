@@ -12,12 +12,13 @@ The Lunch Menu Fetcher is a Python tool designed to automate the extraction of l
 ## Requirements for compiling
 - Python 3.x
 - Libraries: `requests`, `pandas`, `openpyxl`, `beautifulsoup4`
+- To generate a Windows executable you will also need `pyinstaller`
   - Install the required libraries using pip:
     ```sh
     pip install requests pandas openpyxl beautifulsoup4
     ```
 ## Usage with Windows executable
-1. Download executable from dist folder or generate it by running generateExe.bat
+1. Download executable from dist folder or generate it yourself after setting up the environment by running generateExe.bat
 2. Run it either with no arguments and it is going to use the defaults or use the following arguments to specify the behaviour.
 
 ### Command-Line Arguments
@@ -25,7 +26,7 @@ The Lunch Menu Fetcher is a Python tool designed to automate the extraction of l
 - `-of` or `--outputFile`: Specifies the location and name of the output Excel file without the extension (e.g., `path/to/weekly_lunch_menu`). If not provided, defaults to creating a `weekly_lunch_menu.xlsx` file in the current directory with a timestamp.
 
 ### Example
-To fetch the lunch menu from Fleischerei Huerner and save it to `menus/this_week_menu.xlsx`, run:
+To fetch the lunch menu from Fleischerei Huerner and save it to `C:\temp\this_week_menu.xlsx`, run:
 ```sh
 main.exe --inputFile https://www.fleischerei-huerner.at/regionales_mittagsmenue/ --outputFile C:\temp\this-week-menu
 ````
